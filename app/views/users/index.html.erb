@@ -1,0 +1,17 @@
+<center>Welcome to <em>Upload Multiple files one by one</em></center>
+
+<%unless User.all.blank?%>
+	<table>
+		<%User.all.each do |user|%>
+		  <tr>
+		    <td><%=user.name%></td>
+		    <td><%=user.email%></td>
+		    <%unless user.photos.blank?%>
+			    <%user.photos.each do |photo|%>
+			      <td><%=image_tag photo.attachment.url(:thumb)%></td>
+			    <%end%>
+		    <%end%>
+		  </tr>
+		<%end%>
+	</table>
+<%end%>
